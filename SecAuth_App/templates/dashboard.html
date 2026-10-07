@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Systems Dashboard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f4f6f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem; }
+        .dashboard-box { background: #ffffff; padding: 3rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); width: 100%; max-width: 500px; text-align: center; border: 1px solid #eef2f5; }
+        h1 { color: #16a34a; font-size: 2.2rem; margin-bottom: 1rem; }
+        p { color: #475569; font-size: 1.1rem; margin-bottom: 2rem; }
+        .btn-logout { display: inline-block; text-decoration: none; background-color: #e11d48; color: white; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; transition: background 0.2s; }
+        .btn-logout:hover { background-color: #be123c; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-box">
+        <h1>Access Granted Successfully</h1>
+        <!-- Dynamic greeting displaying the logged-in user's name token -->
+        <p>Welcome to your secure profile space, <strong>{{ username }}</strong>.</p>
+        
+        <a href="{% url 'logout_url' %}" class="btn-logout">Terminate Session (Logout)</a>
+    </div>
+
+</body>
+</html>

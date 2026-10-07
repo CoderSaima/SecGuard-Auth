@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Authorization</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        background-color: #f4f6f9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 1rem;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+      }
+      form {
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(44, 62, 80, 0.08);
+        width: 100%;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        border: 1px solid #eef2f5;
+      }
+      label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #34495e;
+        align-self: flex-start;
+        margin-bottom: -0.6rem;
+      }
+      input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        background-color: #fff;
+        color: #334155;
+        outline: none;
+        transition: all 0.2s ease-in-out;
+      }
+      input:hover {
+        border-color: #94a3b8;
+      }
+      input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+      }
+      button {
+        width: 100%;
+        padding: 0.85rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        background-color: #1e293b;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        transition: all 0.2s ease;
+      }
+      button:hover {
+        background-color: #0f172a;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+      }
+      button:active {
+        background-color: #1e293b;
+        transform: translateY(1px);
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Security Gate Authorization</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="user_Name">Name</label>
+      <input
+        type="text"
+        name="user_Name"
+        placeholder="Enter your Name"
+        id="user_Name"
+      />
+
+      <label for="user_Email">Email</label>
+      <input
+        type="email"
+        name="user_Email"
+        placeholder="Enter your Email"
+        id="user_Email"
+      />
+
+      <label for="user_Password">Password</label>
+      <input
+        type="password"
+        name="user_Password"
+        placeholder="Enter your Password"
+        id="user_Password"
+      />
+
+      <button type="submit">Submit</button>
+      {% if error_message %}
+      <div
+        style="
+          background-color: #fde8e8;
+          color: red;
+          padding: 0.75rem;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          text-align: center;
+          border: 1px solid #fca5a5;
+        "
+      >
+        {{ error_message }}
+      </div>
+      {% endif %} {% if success_message %}
+      <div
+        style="
+          background-color: #f0fdf4;
+          color: green;
+          padding: 0.75rem;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          text-align: center;
+          border: 1px solid #bbf7d0;
+        "
+      >
+        {{ success_message }}
+      </div>
+      {% endif %}
+    </form>
+  </body>
+</html>
