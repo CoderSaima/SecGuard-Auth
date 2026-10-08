@@ -1,4 +1,4 @@
-#  Project 5: SecureGate Auth (Identity & Access Management Engine)
+#  SecureGate Auth (Identity & Access Management Engine)
 
 An intermediate, security-hardened Django application engineered to implement a complete **Identity and Access Management (IAM)** infrastructure. The system eradicates the risk of plaintext credential leaks by integrating one-way cryptographic encryption salts, manages duplicate account collision through strict database-level unique constraints, and enforces stateful user tracking utilizing secure browser session tokens.
 
