@@ -4,7 +4,7 @@ An intermediate, security-hardened Django application engineered to implement a 
 
 ---
 
-## 📈 System Architectural Layout & Lifecycle Flow
+## System Architectural Layout & Lifecycle Flow
 
 Project 5 orchestrates user authenticity screening across a three-tier defensive security pipeline:
 
@@ -40,6 +40,6 @@ The identity database table structure runs under strict storage constraints:
 * `password` (CharField, max_length=255): Allocates highly indexed storage to hold long, cryptographically scrambled hash sequences securely.
 
 ---
-## 💻 Tech Stack & Engineering Focus
+## Tech Stack & Engineering Focus
 * **Backend Core Framework:** Django 5.x / Python 3.x
 * **Core Engineering Concepts Practiced:** Cryptographic Password Hashing Matrix, Stateful Browser Cookie Session Management, Custom Error Block Context Rendering, Route Protection Logic, Integrity Crash Prevention (`.filter().exists()`).
