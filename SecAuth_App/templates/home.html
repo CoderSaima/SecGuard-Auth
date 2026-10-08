@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Guard Authorization</title>
     <style>
-        /* 1. Global Modern Settings */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
             background-color: #f4f6f9;
             display: flex;
@@ -21,8 +19,6 @@
             min-height: 100vh;
             padding: 1rem;
         }
-
-        /* 2. Main Portal Card Layout */
         .portal-card {
             background: #ffffff;
             padding: 3rem 2.5rem;
@@ -33,8 +29,6 @@
             text-align: center;
             border: 1px solid #eef2f5;
         }
-
-        /* 3. Typography Design */
         h1 {
             font-size: 2.1rem;
             color: #1e293b;
@@ -43,21 +37,17 @@
             letter-spacing: -0.5px;
             line-height: 1.2;
         }
-
         p {
             font-size: 1rem;
             color: #64748b;
             margin-bottom: 2.2rem;
             font-weight: 500;
         }
-
-        /* 4. Action Button Interface Controls */
         .button-group {
             display: flex;
             gap: 1rem;
             width: 100%;
         }
-
         button {
             flex: 1;
             padding: 0.85rem;
@@ -68,34 +58,26 @@
             transition: all 0.2s ease-in-out;
             outline: none;
         }
-
-        /* Primary Signup Layout (Dark Theme) */
         .btn-signup {
             color: #ffffff;
             background-color: #1e293b;
             border: none;
         }
-
         .btn-signup:hover {
             background-color: #0f172a;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
         }
-
-        /* Secondary Login Layout (Outline Border Theme) */
         .btn-login {
             color: #1e293b;
             background-color: #ffffff;
             border: 2px solid #cbd5e1;
         }
-
         .btn-login:hover {
             background-color: #f8fafc;
             border-color: #94a3b8;
             transform: translateY(-1px);
         }
-
-        /* Active click compression response */
         button:active {
             transform: translateY(1px);
             box-shadow: none;
@@ -103,18 +85,13 @@
     </style>
 </head>
 <body>
-
-    <!-- Central Interactive Guard Portal Container -->
     <div class="portal-card">
         <h1>Security Guard Authorization</h1>
         <p>Access your items securely</p>
-        
         <div class="button-group">
-            <!-- Bound cleanly to your Django dynamic routing matrix paths -->
             <button type="button" class="btn-signup" onclick="window.location.href='{% url 'register_url' %}'">Signup</button>
             <button type="button" class="btn-login" onclick="window.location.href='{% url 'login_url' %}'">Login</button>
         </div>
     </div>
-
 </body>
 </html>

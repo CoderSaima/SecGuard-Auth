@@ -42,12 +42,12 @@ def SecAuth_views(request):
                 password=encrypted_pwd
             )
             context['success_message'] = "Account created successfully!"
+            return redirect('login_url')
         
         except Exception:
             context['error_message'] = "An account with this email address already exists!"
             
     return render(request, 'register.html', context)
-    # return redirect('login_url')
 # -----------
 # LOGIN
 # -----------
@@ -67,7 +67,10 @@ def SecAuth_login_view(request):
                 request.session['auth_user_id'] = user_record.id
                 request.session['auth_user_name'] = user_record.name
 
-                return HttpResponse(f"Welcome back, {user_record.name}!")
+                context = {
+                    'username': request.session.get('auth_user_name')
+                    }
+                return render(request, 'dashboard.html', context)
             else:
                 context['error_message'] = "Invalid Authentication Details."
         except SecAuth_Model.DoesNotExist:
@@ -90,7 +93,7 @@ def SecAuth_dashboard_view(request):
         return redirect('login_url')
 
     context = {
-        'username' : request.session.get('auth_user_name')
+    'username': request.session.get('auth_user_name')
     }
     return render(request, 'dashboard.html', context)
 

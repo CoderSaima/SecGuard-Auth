@@ -5,23 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Systems Dashboard</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f4f6f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem; }
-        .dashboard-box { background: #ffffff; padding: 3rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); width: 100%; max-width: 500px; text-align: center; border: 1px solid #eef2f5; }
-        h1 { color: #16a34a; font-size: 2.2rem; margin-bottom: 1rem; }
-        p { color: #475569; font-size: 1.1rem; margin-bottom: 2rem; }
-        .btn-logout { display: inline-block; text-decoration: none; background-color: #e11d48; color: white; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; transition: background 0.2s; }
-        .btn-logout:hover { background-color: #be123c; }
+        /* Modern Minimalist UI Reset */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        
+        body { 
+            background-color: #f4f6f9; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            padding: 1rem; 
+        }
+
+        /* Central Authorized Portal Card */
+        .dashboard-box { 
+            background: #ffffff; 
+            padding: 3rem 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 24px rgba(44, 62, 80, 0.08); 
+            width: 100%; 
+            max-width: 480px; 
+            text-align: center; 
+            border: 1px solid #eef2f5; 
+        }
+
+        h1 { 
+            color: #16a34a; 
+            font-size: 2.2rem; 
+            font-weight: 700; 
+            margin-bottom: 0.8rem; 
+            letter-spacing: -0.5px;
+        }
+
+        p { 
+            color: #475569; 
+            font-size: 1.1rem; 
+            margin-bottom: 2.5rem; 
+            font-weight: 500;
+        }
+
+        /* Hardened Security Terminate Interactive Control */
+        .btn-logout { 
+            display: block; 
+            width: 100%;
+            text-decoration: none; 
+            background-color: #e11d48; 
+            color: #ffffff; 
+            padding: 0.85rem; 
+            font-weight: 600; 
+            font-size: 1rem;
+            border-radius: 8px; 
+            transition: all 0.2s ease-in-out; 
+        }
+
+        /* Hover Feedback loop */
+        .btn-logout:hover { 
+            background-color: #be123c; 
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.2);
+        }
+
+        .btn-logout:active {
+            transform: translateY(1px);
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
 
     <div class="dashboard-box">
-        <h1>Access Granted Successfully</h1>
-        <!-- Dynamic greeting displaying the logged-in user's name token -->
-        <p>Welcome to your secure profile space, <strong>{{ username }}</strong>.</p>
-        
-        <a href="{% url 'logout_url' %}" class="btn-logout">Terminate Session (Logout)</a>
+        <h1>Access Granted</h1>
+        <p>Welcome back Dear, <strong>{{ username }}</strong>!</p>
+        <button type="button" class="btn-logout" onclick="window.location.href='{% url 'logout_url' %}'">Terminate Session (Logout)</button>
+        {% comment %} <a href="{% url 'logout_url' %}" class="btn-logout">Terminate Session (Logout)</a> {% endcomment %}
     </div>
 
 </body>
